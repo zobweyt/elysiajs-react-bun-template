@@ -1,13 +1,14 @@
 import { Elysia, t } from "elysia";
 
+import { authModel } from "@acme/backend/modules/auth";
 import { jwt } from "@acme/backend/shared/jwt";
 
 import { getUserById } from "../../../shared/service";
 
 export const currentUser = new Elysia({ name: "users-me-current-user-macro" })
-  .use(jwt)
+  .use([jwt, authModel])
   .macro("currentUser", {
-    cookie: t.Cookie({ auth: t.String() }),
+    cookie: "AuthCookie",
     resolve: async ({ jwt, cookie, status }) => {
       const payload = await jwt.verify(cookie.auth.value);
 
