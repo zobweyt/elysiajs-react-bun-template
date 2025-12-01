@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "noFallthroughCasesInSwitch": true,
+    "noPropertyAccessFromIndexSignature": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "strict": true,
+    "baseUrl": ".",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "paths": {
+      "@acme/backend": ["../backend/src"],
+      "@acme/backend/*": ["../backend/src/*"],
+      "@acme/frontend/*": ["./src/*"],
+      "@acme/frontend": ["./src"],
+      "package.json": ["./package.json"]
+    },
+    "noEmit": true,
+    "allowJs": true,
+    "jsx": "react-jsx",
+    "lib": ["DOM", "ESNext"],
+    "target": "ESNext",
+    "moduleDetection": "force",
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true
+  }
+}

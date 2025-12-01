@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "baseUrl": ".",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "paths": {
+      "@acme/backend": ["./src"],
+      "@acme/backend/*": ["./src/*"],
+      "package.json": ["./package.json"]
+    },
+    "resolveJsonModule": true,
+    "typeRoots": ["../../node_modules/@types", "./node_modules/@types"],
+    "types": ["bun"],
+    "forceConsistentCasingInFileNames": true,
+    "target": "ESNext"
+  }
+}
