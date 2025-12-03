@@ -1,3 +1,4 @@
+# Contributing
 
 ```sh
 git clone git@github.com:zobweyt/elysiajs-react-bun-template.git 
