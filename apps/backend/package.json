@@ -10,7 +10,7 @@
     "format": "biome format --write",
     "postinstall": "cp -n .env.example .env || true",
     "lint": "biome lint",
-    "migrate": "bun run scripts/migrate.ts",
+    "migrate": "bun run ./scripts/migrate.ts",
     "prestart": "bun migrate",
     "start": "bun run ./src/index.ts",
     "tsc": "tsc --noEmit"
