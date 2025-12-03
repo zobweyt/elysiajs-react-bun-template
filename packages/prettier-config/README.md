@@ -1,1 +1,0 @@
-# @acme/prettier-config

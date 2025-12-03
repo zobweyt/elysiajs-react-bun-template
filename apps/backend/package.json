@@ -3,14 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "check": "prettier --check .",
+    "check": "biome check",
     "clean": "rm -rf dist node_modules",
     "dev": "bun run --watch ./src/index.ts",
-    "format": "prettier --check --write ."
+    "format": "biome format --write",
+    "postinstall": "cp -n .env.example .env || true && bun migrate",
+    "lint": "biome lint",
+    "migrate": "bun run scripts/migrate.ts",
+    "tsc": "tsc --noEmit"
   },
-  "prettier": "@acme/prettier-config/base.json",
   "dependencies": {
-    "@acme/prettier-config": "*:workspace",
     "@elysiajs/cors": "^1.4.0",
     "@elysiajs/jwt": "^1.4.0",
     "@elysiajs/openapi": "^1.4.11",

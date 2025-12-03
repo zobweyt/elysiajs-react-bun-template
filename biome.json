@@ -1,0 +1,82 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.3.8/schema.json",
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineEnding": "lf",
+    "lineWidth": 80
+  },
+  "linter": {
+    "enabled": true,
+    "domains": {
+      "project": "recommended"
+    },
+    "rules": {
+      "recommended": true,
+      "correctness": {
+        "noUndeclaredVariables": {
+          "level": "on",
+          "options": {
+            "checkTypes": true
+          }
+        },
+        "noUnknownProperty": "error",
+        "noUnusedImports": {
+          "level": "on",
+          "fix": "safe",
+          "options": {}
+        }
+      }
+    }
+  },
+  "javascript": {
+    "globals": ["Bun"],
+    "formatter": {
+      "enabled": true,
+      "quoteStyle": "double",
+      "semicolons": "always",
+      "trailingCommas": "all"
+    }
+  },
+  "assist": {
+    "enabled": true,
+    "actions": {
+      "source": {
+        "organizeImports": {
+          "level": "on",
+          "options": {
+            "identifierOrder": "lexicographic",
+            "groups": [
+              [":NODE:", ":BUN:"],
+              ":BLANK_LINE:",
+              ":URL:",
+              ":BLANK_LINE:",
+              [
+                ":PACKAGE:",
+                ":PACKAGE_WITH_PROTOCOL:",
+                "!@acme/backend",
+                "!@acme/backend/**",
+                "!@acme/frontend",
+                "!@acme/frontend/**"
+              ],
+              ":BLANK_LINE:",
+              ["@acme/backend", "@acme/backend/**"],
+              ":BLANK_LINE:",
+              ["@acme/frontend", "@acme/frontend/**"],
+              ":BLANK_LINE:",
+              ":ALIAS:",
+              ":BLANK_LINE:",
+              ":PATH:"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

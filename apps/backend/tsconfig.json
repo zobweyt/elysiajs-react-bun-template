@@ -13,6 +13,9 @@
     "typeRoots": ["../../node_modules/@types", "./node_modules/@types"],
     "types": ["bun"],
     "forceConsistentCasingInFileNames": true,
-    "target": "ESNext"
-  }
+    "target": "ESNext",
+    "skipLibCheck": true
+  },
+  "include": ["src"],
+  "exclude": ["dist", "public"]
 }
