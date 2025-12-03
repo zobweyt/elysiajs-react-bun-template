@@ -5,6 +5,22 @@
     "clientKind": "git",
     "useIgnoreFile": true
   },
+  "files": {
+    "includes": [
+      "**",
+      "!!**/dist",
+      "!!**/etc",
+      "!!**/node_modules",
+      "!!**/public",
+      "**/*.js",
+      "**/*.jsx",
+      "**/*.md",
+      "**/*.mdx",
+      "**/*.mjs",
+      "**/*.ts",
+      "**/*.tsx"
+    ]
+  },
   "formatter": {
     "enabled": true,
     "indentStyle": "space",
