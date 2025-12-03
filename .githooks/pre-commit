@@ -1,0 +1,18 @@
+#!/bin/sh
+
+set -eu
+
+if git status --short | grep --quiet '^MM'; then
+  printf '%s\n' "ERROR: Some staged files have unstaged changes" >&2
+  exit 1;
+fi
+
+if ! bun run check -- --write --staged --files-ignore-unknown=true --no-errors-on-unmatched; then
+  exit 1
+fi
+
+if ! bun run tsc; then
+  exit 1
+fi
+
+git update-index --again
