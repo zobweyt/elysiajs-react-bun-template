@@ -1,9 +1,15 @@
 import { Elysia, InvertedStatusMap, redirect } from "elysia";
 
-import { authController } from "@acme/backend/modules/auth";
-import { usersController } from "@acme/backend/modules/users";
-import { cors } from "@acme/backend/shared/cors";
-import { openapi } from "@acme/backend/shared/openapi";
+import { createAuthController } from "@acme/backend/controllers/auth.controller";
+import { createUserController } from "@acme/backend/controllers/user.controller";
+import { runMigrationsIfNeeded } from "@acme/backend/db/migrate-on-start";
+import { SqliteUserRepository } from "@acme/backend/domain/users/user.sqlite-repository";
+import { cors } from "@acme/backend/http/plugins/cors";
+import { openapi } from "@acme/backend/http/plugins/openapi";
+
+await runMigrationsIfNeeded();
+
+const userRepository = new SqliteUserRepository();
 
 export const app = new Elysia()
   .onAfterResponse(({ set, request, route }) => {
@@ -16,7 +22,12 @@ export const app = new Elysia()
       console.error(error);
     }
   })
-  .use([cors, openapi, authController, usersController])
+  .use([
+    cors,
+    openapi,
+    createAuthController({ users: userRepository }),
+    createUserController({ users: userRepository }),
+  ])
   .get("", redirect("/docs"))
   .listen(process.env?.PORT ?? 3000);
 

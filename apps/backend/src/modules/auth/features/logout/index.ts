@@ -1,1 +1,0 @@
-export { authLogoutController } from "./controller";
