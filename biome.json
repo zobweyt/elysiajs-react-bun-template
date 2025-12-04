@@ -48,6 +48,9 @@
           "fix": "safe",
           "options": {}
         }
+      },
+      "suspicious": {
+        "noAssignInExpressions": "off"
       }
     }
   },

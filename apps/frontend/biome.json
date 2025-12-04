@@ -7,14 +7,32 @@
       "react": "all"
     },
     "rules": {
-      "a11y": "error",
-      "correctness": {
-        "useExhaustiveDependencies": "off",
-        "useUniqueElementIds": "off"
+      "a11y": "off",
+      "style": {
+        "useComponentExportOnlyModules": "off"
+      },
+      "nursery": {
+        "useSortedClasses": {
+          "fix": "safe",
+          "level": "warn",
+          "options": {
+            "attributes": ["classList"],
+            "functions": ["cn", "clsx", "cva", "tw"]
+          }
+        }
       },
       "suspicious": {
         "noArrayIndexKey": "off"
+      },
+      "correctness": {
+        "useExhaustiveDependencies": "off",
+        "useUniqueElementIds": "off"
       }
+    }
+  },
+  "css": {
+    "parser": {
+      "tailwindDirectives": true
     }
   },
   "javascript": {

@@ -1,4 +1,9 @@
 {
+  "tailwindCSS.classAttributes": [".*class.*", ".*Class.*"],
+  "tailwindCSS.classFunctions": ["cn", "clsx", "cva", "tw"],
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
   "files.exclude": {
     "**/dist": true,
     "**/node_modules": true
@@ -12,7 +17,8 @@
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
       "source.fixAll.biome": "explicit",
-      "source.organizeImports.biome": "explicit"
+      "source.organizeImports.biome": "explicit",
+      "source.removeUnusedImports": "always"
     }
   }
 }
