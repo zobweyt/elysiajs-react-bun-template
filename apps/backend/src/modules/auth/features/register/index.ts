@@ -1,1 +1,0 @@
-export { authRegisterController } from "./controller";
